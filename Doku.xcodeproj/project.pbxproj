@@ -1,0 +1,597 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D497C2032C4008DB000F9F55 /* DokuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497C2022C4008DB000F9F55 /* DokuApp.swift */; };
+		D497C2052C4008DB000F9F55 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497C2042C4008DB000F9F55 /* ContentView.swift */; };
+		D497C2072C4008DB000F9F55 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497C2062C4008DB000F9F55 /* Item.swift */; };
+		D497C2092C4008DC000F9F55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D497C2082C4008DC000F9F55 /* Assets.xcassets */; };
+		D497C20C2C4008DC000F9F55 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D497C20B2C4008DC000F9F55 /* Preview Assets.xcassets */; };
+		D497C2162C4008DC000F9F55 /* DokuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497C2152C4008DC000F9F55 /* DokuTests.swift */; };
+		D497C2202C4008DC000F9F55 /* DokuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497C21F2C4008DC000F9F55 /* DokuUITests.swift */; };
+		D497C2222C4008DC000F9F55 /* DokuUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497C2212C4008DC000F9F55 /* DokuUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D497C2122C4008DC000F9F55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D497C1F72C4008DB000F9F55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D497C1FE2C4008DB000F9F55;
+			remoteInfo = Doku;
+		};
+		D497C21C2C4008DC000F9F55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D497C1F72C4008DB000F9F55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D497C1FE2C4008DB000F9F55;
+			remoteInfo = Doku;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D497C1FF2C4008DB000F9F55 /* Doku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doku.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D497C2022C4008DB000F9F55 /* DokuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DokuApp.swift; sourceTree = "<group>"; };
+		D497C2042C4008DB000F9F55 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D497C2062C4008DB000F9F55 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		D497C2082C4008DC000F9F55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D497C20B2C4008DC000F9F55 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D497C2112C4008DC000F9F55 /* DokuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DokuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D497C2152C4008DC000F9F55 /* DokuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DokuTests.swift; sourceTree = "<group>"; };
+		D497C21B2C4008DC000F9F55 /* DokuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DokuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D497C21F2C4008DC000F9F55 /* DokuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DokuUITests.swift; sourceTree = "<group>"; };
+		D497C2212C4008DC000F9F55 /* DokuUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DokuUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D497C1FC2C4008DB000F9F55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D497C20E2C4008DC000F9F55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D497C2182C4008DC000F9F55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D497C1F62C4008DB000F9F55 = {
+			isa = PBXGroup;
+			children = (
+				D497C2012C4008DB000F9F55 /* Doku */,
+				D497C2142C4008DC000F9F55 /* DokuTests */,
+				D497C21E2C4008DC000F9F55 /* DokuUITests */,
+				D497C2002C4008DB000F9F55 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D497C2002C4008DB000F9F55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D497C1FF2C4008DB000F9F55 /* Doku.app */,
+				D497C2112C4008DC000F9F55 /* DokuTests.xctest */,
+				D497C21B2C4008DC000F9F55 /* DokuUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D497C2012C4008DB000F9F55 /* Doku */ = {
+			isa = PBXGroup;
+			children = (
+				D497C2022C4008DB000F9F55 /* DokuApp.swift */,
+				D497C2042C4008DB000F9F55 /* ContentView.swift */,
+				D497C2062C4008DB000F9F55 /* Item.swift */,
+				D497C2082C4008DC000F9F55 /* Assets.xcassets */,
+				D497C20A2C4008DC000F9F55 /* Preview Content */,
+			);
+			path = Doku;
+			sourceTree = "<group>";
+		};
+		D497C20A2C4008DC000F9F55 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D497C20B2C4008DC000F9F55 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D497C2142C4008DC000F9F55 /* DokuTests */ = {
+			isa = PBXGroup;
+			children = (
+				D497C2152C4008DC000F9F55 /* DokuTests.swift */,
+			);
+			path = DokuTests;
+			sourceTree = "<group>";
+		};
+		D497C21E2C4008DC000F9F55 /* DokuUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D497C21F2C4008DC000F9F55 /* DokuUITests.swift */,
+				D497C2212C4008DC000F9F55 /* DokuUITestsLaunchTests.swift */,
+			);
+			path = DokuUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D497C1FE2C4008DB000F9F55 /* Doku */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D497C2252C4008DC000F9F55 /* Build configuration list for PBXNativeTarget "Doku" */;
+			buildPhases = (
+				D497C1FB2C4008DB000F9F55 /* Sources */,
+				D497C1FC2C4008DB000F9F55 /* Frameworks */,
+				D497C1FD2C4008DB000F9F55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Doku;
+			productName = Doku;
+			productReference = D497C1FF2C4008DB000F9F55 /* Doku.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D497C2102C4008DC000F9F55 /* DokuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D497C2282C4008DC000F9F55 /* Build configuration list for PBXNativeTarget "DokuTests" */;
+			buildPhases = (
+				D497C20D2C4008DC000F9F55 /* Sources */,
+				D497C20E2C4008DC000F9F55 /* Frameworks */,
+				D497C20F2C4008DC000F9F55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D497C2132C4008DC000F9F55 /* PBXTargetDependency */,
+			);
+			name = DokuTests;
+			productName = DokuTests;
+			productReference = D497C2112C4008DC000F9F55 /* DokuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D497C21A2C4008DC000F9F55 /* DokuUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D497C22B2C4008DC000F9F55 /* Build configuration list for PBXNativeTarget "DokuUITests" */;
+			buildPhases = (
+				D497C2172C4008DC000F9F55 /* Sources */,
+				D497C2182C4008DC000F9F55 /* Frameworks */,
+				D497C2192C4008DC000F9F55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D497C21D2C4008DC000F9F55 /* PBXTargetDependency */,
+			);
+			name = DokuUITests;
+			productName = DokuUITests;
+			productReference = D497C21B2C4008DC000F9F55 /* DokuUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D497C1F72C4008DB000F9F55 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					D497C1FE2C4008DB000F9F55 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					D497C2102C4008DC000F9F55 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = D497C1FE2C4008DB000F9F55;
+					};
+					D497C21A2C4008DC000F9F55 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = D497C1FE2C4008DB000F9F55;
+					};
+				};
+			};
+			buildConfigurationList = D497C1FA2C4008DB000F9F55 /* Build configuration list for PBXProject "Doku" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D497C1F62C4008DB000F9F55;
+			productRefGroup = D497C2002C4008DB000F9F55 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D497C1FE2C4008DB000F9F55 /* Doku */,
+				D497C2102C4008DC000F9F55 /* DokuTests */,
+				D497C21A2C4008DC000F9F55 /* DokuUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D497C1FD2C4008DB000F9F55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D497C20C2C4008DC000F9F55 /* Preview Assets.xcassets in Resources */,
+				D497C2092C4008DC000F9F55 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D497C20F2C4008DC000F9F55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D497C2192C4008DC000F9F55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D497C1FB2C4008DB000F9F55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D497C2052C4008DB000F9F55 /* ContentView.swift in Sources */,
+				D497C2072C4008DB000F9F55 /* Item.swift in Sources */,
+				D497C2032C4008DB000F9F55 /* DokuApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D497C20D2C4008DC000F9F55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D497C2162C4008DC000F9F55 /* DokuTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D497C2172C4008DC000F9F55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D497C2202C4008DC000F9F55 /* DokuUITests.swift in Sources */,
+				D497C2222C4008DC000F9F55 /* DokuUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D497C2132C4008DC000F9F55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D497C1FE2C4008DB000F9F55 /* Doku */;
+			targetProxy = D497C2122C4008DC000F9F55 /* PBXContainerItemProxy */;
+		};
+		D497C21D2C4008DC000F9F55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D497C1FE2C4008DB000F9F55 /* Doku */;
+			targetProxy = D497C21C2C4008DC000F9F55 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D497C2232C4008DC000F9F55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D497C2242C4008DC000F9F55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D497C2262C4008DC000F9F55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Doku/Preview Content\"";
+				DEVELOPMENT_TEAM = RU773P5475;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.egecam.Doku;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D497C2272C4008DC000F9F55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Doku/Preview Content\"";
+				DEVELOPMENT_TEAM = RU773P5475;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.egecam.Doku;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D497C2292C4008DC000F9F55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RU773P5475;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.egecam.DokuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Doku.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Doku";
+			};
+			name = Debug;
+		};
+		D497C22A2C4008DC000F9F55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RU773P5475;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.egecam.DokuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Doku.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Doku";
+			};
+			name = Release;
+		};
+		D497C22C2C4008DC000F9F55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RU773P5475;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.egecam.DokuUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Doku;
+			};
+			name = Debug;
+		};
+		D497C22D2C4008DC000F9F55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RU773P5475;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.egecam.DokuUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Doku;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D497C1FA2C4008DB000F9F55 /* Build configuration list for PBXProject "Doku" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D497C2232C4008DC000F9F55 /* Debug */,
+				D497C2242C4008DC000F9F55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D497C2252C4008DC000F9F55 /* Build configuration list for PBXNativeTarget "Doku" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D497C2262C4008DC000F9F55 /* Debug */,
+				D497C2272C4008DC000F9F55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D497C2282C4008DC000F9F55 /* Build configuration list for PBXNativeTarget "DokuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D497C2292C4008DC000F9F55 /* Debug */,
+				D497C22A2C4008DC000F9F55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D497C22B2C4008DC000F9F55 /* Build configuration list for PBXNativeTarget "DokuUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D497C22C2C4008DC000F9F55 /* Debug */,
+				D497C22D2C4008DC000F9F55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D497C1F72C4008DB000F9F55 /* Project object */;
+}
