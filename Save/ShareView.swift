@@ -14,19 +14,20 @@ struct ShareView: View {
     @State private var title: String = ""
     @State private var tags: String = ""
     let url: URL?
-    let image: UIImage?
     let text: String?
     let contentType: ContentType
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.colorScheme) var colorScheme
     
-    var saveAction: (URL?, UIImage?, String?, String, [String], ContentType) -> Void
+    var saveAction: (URL?, String?, String, [String], ContentType) -> Void
+    var cancelAction: () -> Void
     
-    init(url: URL?, image: UIImage?, text: String?, contentType: ContentType, saveAction: @escaping (URL?, UIImage?, String?, String, [String], ContentType) -> Void) {
+    init(url: URL?, text: String?, contentType: ContentType, saveAction: @escaping (URL?, String?, String, [String], ContentType) -> Void, cancelAction: @escaping () -> Void) {
         self.url = url
-        self.image = image
         self.text = text
         self.contentType = contentType
         self.saveAction = saveAction
+        self.cancelAction = cancelAction
         
         // Suggest initial title and tags based on content type
         _title = State(initialValue: suggestInitialTitle())
@@ -37,11 +38,29 @@ struct ShareView: View {
     private let logger = Logger()
     
     var body: some View {
-        NavigationView {
-            Form {
-                Section(header: Text("Save to Doku")) {
-                    TextField("Title", text: $title)
-                    TextField("Tags (comma-separated)", text: $tags)
+        ZStack {
+            colorScheme == .light ? Color.alabaster.ignoresSafeArea() : Color.jet
+                .ignoresSafeArea()
+            
+            VStack(alignment: .center) {
+                HStack {
+                    Spacer()
+
+                    Text("Save to Doku")
+                        .font(.vollkorn(size: 26, weight: 500))
+                        .padding(.top)
+                    
+                    Spacer()
+                    
+                    Button(action: cancelAction) {
+                        Text("Cancel")
+                            .foregroundStyle(.auburn)
+                    }
+                    .padding()
+                }
+                
+                
+                VStack(alignment: .leading) {
                     
                     switch contentType {
                     case .article, .tweet:
@@ -52,27 +71,64 @@ struct ShareView: View {
                         if let text = text {
                             Text("Passage: \(text.prefix(100))...")
                         }
-                    case .image:
-                        if image != nil {
-                            Text("Image will be saved")
-                        }
                     case .unknown:
                         Text("Unknown content type")
                     }
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12.0)
+                            .stroke(colorScheme == .light ? .gray.opacity(0.2) : .davysGray, lineWidth: 3)
+                            .fill(.outerSpace.opacity(0.4))
+                            .frame(height: 50)
+                        
+                        TextField(text: $title) {
+                            Text("Title")
+                        }
+                        .foregroundStyle(colorScheme == .light ? .jet : .alabaster)
+                        .padding(13)
+                    }
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12.0)
+                            .stroke(colorScheme == .light ? .gray.opacity(0.2) : .davysGray, lineWidth: 3)
+                            .fill(.outerSpace.opacity(0.4))
+                            .frame(height: 50)
+                        
+                        TextField(text: $tags) {
+                            Text("Tags (comma-separated)")
+                        }
+                        .foregroundStyle(colorScheme == .light ? .jet : .alabaster)
+                        .padding(13)
+                    }
+                    
                 }
+                .padding()
                 
-                Button("Save") {
-                    logger.log("Save button pressed")
+                
+                Button {
                     saveContent()
+                } label: {
+                    Text("Save")
+                        .font(.raleway(size: 22, weight: 600))
+                        .foregroundStyle(.asparagus)
+                        .frame(width: 250, height: 50)
                 }
+                .background(.celadon)
+                .cornerRadius(12.0)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12.0)
+                        .stroke(.asparagus, lineWidth: 3)
+                )
+                .padding()
+                
             }
-            .overlay {
-                if isLoading {
-                    LoadingScreen()
-                }
+            .font(.literata(size: 18, weight: 400))
+            .foregroundStyle(colorScheme == .light ? Color.jet : Color.alabaster)
+        }
+        .overlay {
+            if isLoading {
+                LoadingScreen()
             }
-            .navigationTitle("Save to Doku")
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
     
@@ -84,7 +140,7 @@ struct ShareView: View {
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             .filter { !$0.isEmpty }
         
-        saveAction(url, image, text, title, processedTags, contentType)
+        saveAction(url, text, title, processedTags, contentType)
 
         // logger.log("Attempting to save entry: \(title), URL: \(url.absoluteString), Content Type: \(contentType.rawValue), Tags: \(processedTags.joined(separator: ", "))")
         
@@ -102,8 +158,6 @@ struct ShareView: View {
             }
             
             return "Tweet by \(String(describing: username))"
-        case .image:
-            return "Image"
         case .passage:
             return "New Passage"
         case .unknown:
@@ -117,8 +171,6 @@ struct ShareView: View {
             return "article, read-later"
         case .tweet:
             return "tweet, social-media"
-        case .image:
-            return "image, visual"
         case .passage:
             return "passage, notes"
         case .unknown:
