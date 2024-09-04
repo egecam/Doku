@@ -33,7 +33,7 @@ struct DokuEntry: Codable, Identifiable {
 }
 
 enum ContentType: String, Codable {
-    case article, passage, tweet, image, unknown
+    case article, passage, tweet, unknown
 }
 
 struct Tag: Codable, Identifiable {
