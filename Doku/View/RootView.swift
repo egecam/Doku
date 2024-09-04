@@ -15,16 +15,14 @@ struct RootView: View {
     @State private var showAlert: Bool = false
     @State private var isLoading: Bool = false
     @State private var nonce: String?
-    @Environment(\.colorScheme) private var scheme
     @AppStorage("log_status") var logStatus: Bool = false
     
     @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         ZStack {
-            if colorScheme == .light{
-                Color.clear
-            }
+            colorScheme == .light ? Color.alabaster.ignoresSafeArea() : Color.jet
+                .ignoresSafeArea()
             
             Group {
                 if AuthManager.shared.getAuthState() {
@@ -32,10 +30,10 @@ struct RootView: View {
                 } else {
                     VStack {
                         Text("Doku")
-                            .font(.largeTitle.bold())
+                            .font(.vollkorn(size: 42, weight: 800))
                         
                         Text("Your digital commonplace book")
-                            .font(.title2)
+                            .font(.raleway(size: 20, weight: 500))
                         
                         SignInWithAppleButton { request in
                             let nonce = randomNonceString()
@@ -55,6 +53,7 @@ struct RootView: View {
                         .clipShape(Capsule())
                         .padding(.top, 50)
                     }
+                    .foregroundStyle(colorScheme == .light ? Color.jet : Color.alabaster)
                 }
             }
             .overlay {
