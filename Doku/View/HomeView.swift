@@ -9,38 +9,30 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
+    @State var tabSelection: Int = 0
     
     var body: some View {
         TabView {
             NavigationStack {
-                Group {
                     if viewModel.entries.isEmpty {
                         EmptyStateView()
                     } else {
-                        EntriesGridView(entries: viewModel.entries)
-                            .toolbar {
-                                ToolbarItem(placement: .topBarTrailing) {
-                                    Button("Edit") {
-                                        //
-                                    }
-                                }
-                            }
+                        EntriesGridView(viewModel: viewModel, selectedTag: $viewModel.selectedTags, entries: viewModel.entries, tags: viewModel.tags)
                             .refreshable {
                                 viewModel.fetchEntries()
+                                viewModel.fetchTags()
                             }
                     }
-                }
             }
             .tabItem { Label("Saved", systemImage: "bookmark") }
             
+            withAnimation {
+                Text("Subscriptions")
+                    .tabItem { Label("Subscriptions", systemImage: "network") }
+            }
+            
             SettingsView()
                 .tabItem { Label("Settings", systemImage: "gear") }
-        }
-        .tint(.primary)
-        .onAppear {
-            
-            viewModel.fetchEntries()
-            
         }
     }
 }
