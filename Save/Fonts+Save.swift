@@ -5,14 +5,44 @@
 //  Created by Ege Çam on 27.08.2024.
 //
 
+import Foundation
 import SwiftUI
+import VFont
 
-struct Fonts_Save: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    Fonts_Save()
+extension Font {
+    static func vollkorn(
+        size: CGFloat,
+        width: CGFloat = 0,
+        weight: CGFloat = 0) -> Font {
+            return .vFont("Vollkorn", size: size, axes: [
+                2003265652: weight
+            ])
+        }
+    
+    static func literata(
+        size: CGFloat,
+        width: CGFloat = 0,
+        weight: CGFloat = 0) -> Font {
+            return .vFont("Literata", size: size, axes: [
+                2003265652: weight
+            ])
+        }
+    
+    static func raleway(
+        size: CGFloat,
+        width: CGFloat = 0,
+        weight: CGFloat = 0) -> Font {
+            return .vFont("Raleway", size: size, axes: [
+                2003265652: weight
+            ])
+        }
+    
+    static func inter(
+        size: CGFloat,
+        width: CGFloat = 0,
+        weight: CGFloat = 0) -> Font {
+            return .vFont("Inter", size: size, axes: [
+                2003265652: weight
+            ])
+        }
 }
