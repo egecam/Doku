@@ -47,7 +47,7 @@ We would love you for the contribution to **Doku**, check the ``LICENSE`` file f
 
 Ege Cam – [@egecamdev](https://x.com/egecamdev) – egecam000@gmail.com - [egecam.dev](https://egecam.dev)
 
-Distributed under the MIT license. See ``LICENSE`` for more information.
+Distributed under the CC0 - Creative Commons license. See ``LICENSE`` for more information.
 
 [swift-image]:https://img.shields.io/badge/swift-5.1-orange.svg
 [swift-url]: https://swift.org/
