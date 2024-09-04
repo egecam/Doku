@@ -1,18 +1,89 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Account" : {
+    "%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アカウント"
+            "value" : "%@"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hesap"
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "Add to favourites" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お気に入りに追加"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorilere ekle"
+          }
+        }
+      }
+    },
+    "Automatic Downloads" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自動ダウンロード"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otomatik İndirmeler"
+          }
+        }
+      }
+    },
+    "Copy to clipboard" : {
+
+    },
+    "Customise App Icon" : {
+
+    },
+    "Delete" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "削除"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sil"
+          }
+        }
+      }
+    },
+    "Delete downloaded data" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ダウンロードしたデータを削除"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İndirilen içeriği sil"
           }
         }
       }
@@ -22,7 +93,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ドク"
+            "value" : "Doku"
           }
         },
         "tr" : {
@@ -38,7 +109,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "オフライン用ダウンロード"
+            "value" : "オフライン使用のためにダウンロード"
           }
         },
         "tr" : {
@@ -49,50 +120,40 @@
         }
       }
     },
-    "Edit" : {
+    "Favourites" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "編集"
+            "value" : "お気に入り"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Düzenle"
+            "value" : "Favoriler"
           }
         }
       }
     },
-    "General" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "一般"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Genel"
-          }
-        }
-      }
+    "Invalid URL" : {
+
     },
-    "Language" : {
+    "Open the source" : {
+
+    },
+    "Rate Doku on App Store" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "げんご"
+            "value" : "App Storeでドクを評価する"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dil"
+            "value" : "App Store'da Doku'yu değerlendir"
           }
         }
       }
@@ -102,7 +163,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "最近の録音"
+            "value" : "最近保存したもの"
           }
         },
         "tr" : {
@@ -113,7 +174,39 @@
         }
       }
     },
-    "Saved" : {
+    "Recommend a feature" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "機能を提案する"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öneride bulun"
+          }
+        }
+      }
+    },
+    "Remove from favourites" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お気に入りから削除"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorilerden kaldır"
+          }
+        }
+      }
+    },
+    "Save" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -124,27 +217,55 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kaydedilenler"
+            "value" : "Kaydet"
           }
         }
       }
     },
-    "Saved Dokus will be shown here" : {
-
-    },
-    "Saved Dokus will be shown here." : {
-      "extractionState" : "stale",
+    "Save to Doku" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "保存されたドクスはここに登場する。"
+            "value" : "ドクに保存"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kaydedilen Dokular burada görünecek"
+            "value" : "Doku'ya kaydet"
+          }
+        }
+      }
+    },
+    "Saved" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存済み"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaydedilenler"
+          }
+        }
+      }
+    },
+    "Saved things will be shown here." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存したものがここに表示されます"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaydedilen içerik burada görünür."
           }
         }
       }
@@ -165,51 +286,146 @@
         }
       }
     },
-    "Share anything on any app with Doku." : {
-
+    "Share a link, text or tweet with Doku." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リンク、テキスト、ツイートをドクで共有する"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir bağlantıyı, yazıyı veya tweet'i Doku ile paylaş."
+          }
+        }
+      }
     },
     "Sign Out" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "サインアウトする"
+            "value" : "ログアウト"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Çıkış yap"
+            "value" : "Çıkış Yap"
           }
         }
       }
     },
-    "Start by sharing an article, a tweet or an image with Doku." : {
-      "extractionState" : "stale",
+    "Subscriptions" : {
       "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サブスクリプション"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bir makaleyi, tweet'i veya görseli Doku ile paylaşarak başla."
+            "value" : "Abonelikler"
+          }
+        }
+      }
+    },
+    "Tags (comma-separated)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タグ（カンマ区切り"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Etiketler (virgülle-ayrılmış)"
           }
         }
       }
     },
     "This is not an actual tweet. This is just a placeholder." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "これは実際のツイートではありません。プレースホルダーです。"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu gerçek bir tweet değil. Sadece yerini doldursun diye kondu."
+          }
+        }
+      }
+    },
+    "Title" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タイトル"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Başlık"
+          }
+        }
+      }
+    },
+    "Unknown content type" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不明なコンテンツタイプ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bilinmeyen içerik türü"
+          }
+        }
+      }
+    },
+    "URL: %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URL: %@"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URL: %@"
+          }
+        }
+      }
     },
     "Your digital commonplace book" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "あなたのデジタル家計簿"
+            "value" : "あなたのデジタルノートブック"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Dijital hatıra defterin"
+            "state" : "translated",
+            "value" : "Dijital bilgi defterin"
           }
         }
       }
