@@ -8,7 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D4110DD52C62B3E400665491 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D4110DD42C62B3E400665491 /* Shaders.metal */; };
+		D421F0092C77A63900D97637 /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D421F0082C77A63900D97637 /* Inter.ttf */; };
+		D421F00A2C77A63900D97637 /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D421F0082C77A63900D97637 /* Inter.ttf */; };
 		D433E22D2C517106004F804D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433E22C2C517106004F804D /* AuthManager.swift */; };
+		D447BE392C863FD3003F9165 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D447BE382C863FD3003F9165 /* AppIcon.swift */; };
+		D4771C0A2C81FA0400DFB6A1 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4771C092C81FA0400DFB6A1 /* NotificationManager.swift */; };
+		D4771C0C2C81FEEE00DFB6A1 /* InAppNotificationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4771C0B2C81FEEE00DFB6A1 /* InAppNotificationViewModifier.swift */; };
 		D486E3542C4BF9FF00906554 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D486E3532C4BF9FF00906554 /* GoogleService-Info.plist */; };
 		D486E3552C4BF9FF00906554 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D486E3532C4BF9FF00906554 /* GoogleService-Info.plist */; };
 		D486E3562C4BF9FF00906554 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D486E3532C4BF9FF00906554 /* GoogleService-Info.plist */; };
@@ -39,14 +44,26 @@
 		D4A0C5BB2C416A6800886FC8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0C5BA2C416A6800886FC8 /* SettingsView.swift */; };
 		D4B17CE12C4D61C9006E52ED /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B17CE02C4D61C9006E52ED /* ShareView.swift */; };
 		D4B17CE32C4D7857006E52ED /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B17CE22C4D7857006E52ED /* RootView.swift */; };
-		D4D290082C41DF9B002E0FBD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D290072C41DF9B002E0FBD /* HomeViewModel.swift */; };
+		D4BFEBF12C7D2A2B0007A222 /* ShareViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFEBF02C7D2A2B0007A222 /* ShareViewPreview.swift */; };
+		D4BFEBF22C7D34FC0007A222 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D497C2082C4008DC000F9F55 /* Assets.xcassets */; };
+		D4BFEBF42C7D36660007A222 /* Fonts+Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFEBF32C7D36660007A222 /* Fonts+Save.swift */; };
 		D4D2900A2C41E493002E0FBD /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D290092C41E493002E0FBD /* EmptyStateView.swift */; };
 		D4D2900C2C41E4A4002E0FBD /* EntriesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D2900B2C41E4A3002E0FBD /* EntriesGridView.swift */; };
 		D4D2900E2C41E4B2002E0FBD /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D2900D2C41E4B2002E0FBD /* EntryDetailView.swift */; };
 		D4D290162C41E538002E0FBD /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D290152C41E538002E0FBD /* ShareViewController.swift */; };
 		D4D2901D2C41E538002E0FBD /* Save.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D4D290132C41E538002E0FBD /* Save.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D4D290222C41E6E9002E0FBD /* DokuEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497C2062C4008DB000F9F55 /* DokuEntry.swift */; };
-		D4D290272C41EBAE002E0FBD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D290072C41DF9B002E0FBD /* HomeViewModel.swift */; };
+		D4E547322C6564AB0094A030 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E547312C6564AB0094A030 /* HomeViewModel.swift */; };
+		D4E547332C6564AB0094A030 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E547312C6564AB0094A030 /* HomeViewModel.swift */; };
+		D4E5473C2C656D020094A030 /* Raleway.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4E5473B2C656D020094A030 /* Raleway.ttf */; };
+		D4E5473D2C656D020094A030 /* Raleway.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4E5473B2C656D020094A030 /* Raleway.ttf */; };
+		D4E5473F2C656D130094A030 /* Literata.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4E5473E2C656D130094A030 /* Literata.ttf */; };
+		D4E547402C656D130094A030 /* Literata.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4E5473E2C656D130094A030 /* Literata.ttf */; };
+		D4E547432C656E0D0094A030 /* VFont in Frameworks */ = {isa = PBXBuildFile; productRef = D4E547422C656E0D0094A030 /* VFont */; };
+		D4E547452C656E170094A030 /* VFont in Frameworks */ = {isa = PBXBuildFile; productRef = D4E547442C656E170094A030 /* VFont */; };
+		D4E547472C656E250094A030 /* Fonts+Doku.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E547462C656E250094A030 /* Fonts+Doku.swift */; };
+		D4E5474A2C6570C50094A030 /* Vollkorn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4E547492C6570C50094A030 /* Vollkorn.ttf */; };
+		D4E5474B2C6570C50094A030 /* Vollkorn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4E547492C6570C50094A030 /* Vollkorn.ttf */; };
 		D4F8B3E42C4EFB610096D04A /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F8B3E32C4EFB610096D04A /* LoadingScreen.swift */; };
 		D4F8B3E52C4EFC600096D04A /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F8B3E32C4EFB610096D04A /* LoadingScreen.swift */; };
 /* End PBXBuildFile section */
@@ -91,7 +108,11 @@
 
 /* Begin PBXFileReference section */
 		D4110DD42C62B3E400665491 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		D421F0082C77A63900D97637 /* Inter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inter.ttf; sourceTree = "<group>"; };
 		D433E22C2C517106004F804D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		D447BE382C863FD3003F9165 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
+		D4771C092C81FA0400DFB6A1 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		D4771C0B2C81FEEE00DFB6A1 /* InAppNotificationViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppNotificationViewModifier.swift; sourceTree = "<group>"; };
 		D486E3532C4BF9FF00906554 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D48E69732C4DBB68008DA145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D48E69752C4DBBF0008DA145 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -110,7 +131,8 @@
 		D4A0C5BA2C416A6800886FC8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D4B17CE02C4D61C9006E52ED /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		D4B17CE22C4D7857006E52ED /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		D4D290072C41DF9B002E0FBD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		D4BFEBF02C7D2A2B0007A222 /* ShareViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewPreview.swift; sourceTree = "<group>"; };
+		D4BFEBF32C7D36660007A222 /* Fonts+Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+Save.swift"; sourceTree = "<group>"; };
 		D4D290092C41E493002E0FBD /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		D4D2900B2C41E4A3002E0FBD /* EntriesGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesGridView.swift; sourceTree = "<group>"; };
 		D4D2900D2C41E4B2002E0FBD /* EntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
@@ -119,6 +141,11 @@
 		D4D2901A2C41E538002E0FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4D290232C41E709002E0FBD /* Save.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Save.entitlements; sourceTree = "<group>"; };
 		D4D290242C41E723002E0FBD /* Doku.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Doku.entitlements; sourceTree = "<group>"; };
+		D4E547312C6564AB0094A030 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		D4E5473B2C656D020094A030 /* Raleway.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Raleway.ttf; sourceTree = "<group>"; };
+		D4E5473E2C656D130094A030 /* Literata.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Literata.ttf; sourceTree = "<group>"; };
+		D4E547462C656E250094A030 /* Fonts+Doku.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+Doku.swift"; sourceTree = "<group>"; };
+		D4E547492C6570C50094A030 /* Vollkorn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Vollkorn.ttf; sourceTree = "<group>"; };
 		D4F8B3E32C4EFB610096D04A /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4E547432C656E0D0094A030 /* VFont in Frameworks */,
 				D486E3622C4BFFE200906554 /* FirebaseFirestoreSwift in Frameworks */,
 				D486E35E2C4BFA6600906554 /* FirebaseDatabase in Frameworks */,
 				D486E3602C4BFA6600906554 /* FirebaseFirestore in Frameworks */,
@@ -159,6 +187,7 @@
 				D486E3702C4C001500906554 /* FirebaseFirestoreSwift in Frameworks */,
 				D486E36A2C4C001500906554 /* FirebaseDatabase in Frameworks */,
 				D486E3722C4C001500906554 /* FirebaseStorage in Frameworks */,
+				D4E547452C656E170094A030 /* VFont in Frameworks */,
 				D486E3642C4C001500906554 /* FirebaseAnalytics in Frameworks */,
 				D486E36E2C4C001500906554 /* FirebaseFirestore in Frameworks */,
 			);
@@ -171,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				D433E22C2C517106004F804D /* AuthManager.swift */,
+				D4771C092C81FA0400DFB6A1 /* NotificationManager.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -200,6 +230,7 @@
 		D497C2012C4008DB000F9F55 /* Doku */ = {
 			isa = PBXGroup;
 			children = (
+				D4E547382C656C450094A030 /* Fonts */,
 				D48E69752C4DBBF0008DA145 /* Localizable.xcstrings */,
 				D48E69732C4DBB68008DA145 /* Info.plist */,
 				D486E3532C4BF9FF00906554 /* GoogleService-Info.plist */,
@@ -208,11 +239,11 @@
 				D412E48B2C4F0F4400641712 /* Handlers */,
 				D497C22F2C400EB4000F9F55 /* Model */,
 				D497C22E2C400EB0000F9F55 /* View */,
-				D4D290252C41E742002E0FBD /* ViewModel */,
+				D4E547342C6564B00094A030 /* ViewModel */,
 				D4F8B3E22C4EFB4F0096D04A /* Helpers */,
-				D497C2082C4008DC000F9F55 /* Assets.xcassets */,
 				D497C20A2C4008DC000F9F55 /* Preview Content */,
 				D4110DD42C62B3E400665491 /* Shaders.metal */,
+				D497C2082C4008DC000F9F55 /* Assets.xcassets */,
 			);
 			path = Doku;
 			sourceTree = "<group>";
@@ -221,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				D497C20B2C4008DC000F9F55 /* Preview Assets.xcassets */,
+				D4BFEBF02C7D2A2B0007A222 /* ShareViewPreview.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -268,26 +300,40 @@
 			isa = PBXGroup;
 			children = (
 				D4D290232C41E709002E0FBD /* Save.entitlements */,
+				D4D2901A2C41E538002E0FBD /* Info.plist */,
 				D4B17CE02C4D61C9006E52ED /* ShareView.swift */,
 				D4D290152C41E538002E0FBD /* ShareViewController.swift */,
-				D4D2901A2C41E538002E0FBD /* Info.plist */,
+				D4BFEBF32C7D36660007A222 /* Fonts+Save.swift */,
 			);
 			path = Save;
 			sourceTree = "<group>";
 		};
-		D4D290252C41E742002E0FBD /* ViewModel */ = {
+		D4E547342C6564B00094A030 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D4D290072C41DF9B002E0FBD /* HomeViewModel.swift */,
+				D4E547312C6564AB0094A030 /* HomeViewModel.swift */,
 			);
-			name = ViewModel;
-			path = ../ViewModel;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D4E547382C656C450094A030 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D4E547492C6570C50094A030 /* Vollkorn.ttf */,
+				D421F0082C77A63900D97637 /* Inter.ttf */,
+				D4E5473B2C656D020094A030 /* Raleway.ttf */,
+				D4E5473E2C656D130094A030 /* Literata.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		D4F8B3E22C4EFB4F0096D04A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				D4F8B3E32C4EFB610096D04A /* LoadingScreen.swift */,
+				D4E547462C656E250094A030 /* Fonts+Doku.swift */,
+				D4771C0B2C81FEEE00DFB6A1 /* InAppNotificationViewModifier.swift */,
+				D447BE382C863FD3003F9165 /* AppIcon.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -316,6 +362,7 @@
 				D486E35D2C4BFA6600906554 /* FirebaseDatabase */,
 				D486E35F2C4BFA6600906554 /* FirebaseFirestore */,
 				D486E3612C4BFFE200906554 /* FirebaseFirestoreSwift */,
+				D4E547422C656E0D0094A030 /* VFont */,
 			);
 			productName = Doku;
 			productReference = D497C1FF2C4008DB000F9F55 /* Doku.app */;
@@ -379,6 +426,7 @@
 				D486E36D2C4C001500906554 /* FirebaseFirestore */,
 				D486E36F2C4C001500906554 /* FirebaseFirestoreSwift */,
 				D486E3712C4C001500906554 /* FirebaseStorage */,
+				D4E547442C656E170094A030 /* VFont */,
 			);
 			productName = Save;
 			productReference = D4D290132C41E538002E0FBD /* Save.appex */;
@@ -423,6 +471,7 @@
 			mainGroup = D497C1F62C4008DB000F9F55;
 			packageReferences = (
 				D486E3582C4BFA6600906554 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D4E547412C656E0D0094A030 /* XCRemoteSwiftPackageReference "vfont" */,
 			);
 			productRefGroup = D497C2002C4008DB000F9F55 /* Products */;
 			projectDirPath = "";
@@ -441,9 +490,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4E5474A2C6570C50094A030 /* Vollkorn.ttf in Resources */,
+				D4E5473C2C656D020094A030 /* Raleway.ttf in Resources */,
+				D421F0092C77A63900D97637 /* Inter.ttf in Resources */,
 				D486E3542C4BF9FF00906554 /* GoogleService-Info.plist in Resources */,
 				D497C20C2C4008DC000F9F55 /* Preview Assets.xcassets in Resources */,
 				D48E69762C4DBBF0008DA145 /* Localizable.xcstrings in Resources */,
+				D4E5473F2C656D130094A030 /* Literata.ttf in Resources */,
 				D497C2092C4008DC000F9F55 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,6 +522,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D486E3572C4BF9FF00906554 /* GoogleService-Info.plist in Resources */,
+				D4E547402C656D130094A030 /* Literata.ttf in Resources */,
+				D4E5473D2C656D020094A030 /* Raleway.ttf in Resources */,
+				D421F00A2C77A63900D97637 /* Inter.ttf in Resources */,
+				D4BFEBF22C7D34FC0007A222 /* Assets.xcassets in Resources */,
+				D4E5474B2C6570C50094A030 /* Vollkorn.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,15 +538,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				D497C2052C4008DB000F9F55 /* HomeView.swift in Sources */,
+				D4BFEBF12C7D2A2B0007A222 /* ShareViewPreview.swift in Sources */,
+				D447BE392C863FD3003F9165 /* AppIcon.swift in Sources */,
+				D4E547472C656E250094A030 /* Fonts+Doku.swift in Sources */,
 				D433E22D2C517106004F804D /* AuthManager.swift in Sources */,
 				D4110DD52C62B3E400665491 /* Shaders.metal in Sources */,
 				D4F8B3E42C4EFB610096D04A /* LoadingScreen.swift in Sources */,
-				D4D290082C41DF9B002E0FBD /* HomeViewModel.swift in Sources */,
+				D4771C0A2C81FA0400DFB6A1 /* NotificationManager.swift in Sources */,
 				D497C2072C4008DB000F9F55 /* DokuEntry.swift in Sources */,
 				D4D2900C2C41E4A4002E0FBD /* EntriesGridView.swift in Sources */,
 				D4B17CE32C4D7857006E52ED /* RootView.swift in Sources */,
 				D4A0C5BB2C416A6800886FC8 /* SettingsView.swift in Sources */,
+				D4E547322C6564AB0094A030 /* HomeViewModel.swift in Sources */,
 				D497C2322C401020000F9F55 /* EntryCardView.swift in Sources */,
+				D4771C0C2C81FEEE00DFB6A1 /* InAppNotificationViewModifier.swift in Sources */,
 				D4D2900E2C41E4B2002E0FBD /* EntryDetailView.swift in Sources */,
 				D497C2032C4008DB000F9F55 /* DokuApp.swift in Sources */,
 				D4D2900A2C41E493002E0FBD /* EmptyStateView.swift in Sources */,
@@ -519,7 +582,8 @@
 				D4F8B3E52C4EFC600096D04A /* LoadingScreen.swift in Sources */,
 				D4B17CE12C4D61C9006E52ED /* ShareView.swift in Sources */,
 				D4D290162C41E538002E0FBD /* ShareViewController.swift in Sources */,
-				D4D290272C41EBAE002E0FBD /* HomeViewModel.swift in Sources */,
+				D4BFEBF42C7D36660007A222 /* Fonts+Save.swift in Sources */,
+				D4E547332C6564AB0094A030 /* HomeViewModel.swift in Sources */,
 				D4D290222C41E6E9002E0FBD /* DokuEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -917,6 +981,14 @@
 				minimumVersion = 10.29.0;
 			};
 		};
+		D4E547412C656E0D0094A030 /* XCRemoteSwiftPackageReference "vfont" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dufflink/vfont.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -984,6 +1056,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D486E3582C4BFA6600906554 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		D4E547422C656E0D0094A030 /* VFont */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4E547412C656E0D0094A030 /* XCRemoteSwiftPackageReference "vfont" */;
+			productName = VFont;
+		};
+		D4E547442C656E170094A030 /* VFont */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4E547412C656E0D0094A030 /* XCRemoteSwiftPackageReference "vfont" */;
+			productName = VFont;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
