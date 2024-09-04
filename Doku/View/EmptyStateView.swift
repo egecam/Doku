@@ -8,37 +8,23 @@
 import SwiftUI
 
 struct EmptyStateView: View {
-    @Environment(\.colorScheme) var colorScheme
-    
     var body: some View {
-        ZStack {
-            colorScheme == .light ? Color.alabaster.ignoresSafeArea() : Color.jet
-                .ignoresSafeArea()
+        VStack {
+            Text("Your Doku is empty.")
+                .font(.title.bold())
+                .fixedSize(horizontal: false, vertical: true)
             
-            VStack(alignment: .center, spacing: 10) {
-                Text("Your Doku is empty.")
-                    .font(.vollkorn(size: 24, weight: 600))
-                    .fixedSize(horizontal: false, vertical: true)
-                
-                Text("Saved things will be shown here.")
-                    .font(.raleway(size: 16, weight: 500))
-                
-                HStack(spacing: 16) {
-                    Image(systemName: "info.bubble.fill")
-                        .imageScale(.large)
-                    
-                    Text("Share a link, text or tweet with Doku.")
-                        .font(.literata(size: 18, weight: 500))
-                        .multilineTextAlignment(.leading)
-                }
+            Text("Saved Dokus will be shown here")
+                .font(.subheadline)
+            
+            Text("Share anything on any app with Doku.")
+                .font(.headline)
                 .padding(.top, 20)
-                .symbolEffect(.pulse)
-            }
-            .padding()
-            .frame(alignment: .center)
+                .multilineTextAlignment(.center)
+            
         }
-        .foregroundStyle(colorScheme == .light ? .jet : .alabaster)
-        .ignoresSafeArea()
+        .padding()
+        .frame(alignment: .center)
     }
 }
 
