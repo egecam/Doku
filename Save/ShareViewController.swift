@@ -12,11 +12,9 @@ import os.log
 import MobileCoreServices
 
 @objc(PrincipalClassName)
-
 @MainActor
 class ShareViewController: UIViewController {
     private var sharedUrl: URL?
-    private var sharedImage: UIImage?
     private var sharedText: String?
     private var contentType: ContentType = .unknown
     private let logger = Logger()
@@ -55,27 +53,60 @@ class ShareViewController: UIViewController {
     }
     
     private func loadSharedItem() {
-        guard let extensionItem = extensionContext?.inputItems.first as? NSExtensionItem,
-              let itemProvider = extensionItem.attachments?.first else {
+        guard let extensionItem = extensionContext?.inputItems.first as? NSExtensionItem else {
             logger.log("No input items found")
             return
         }
         
-        if itemProvider.hasItemConformingToTypeIdentifier(UTType.url.identifier) {
-            itemProvider.loadItem(forTypeIdentifier: UTType.url.identifier, options: nil) { [weak self] (url, error) in
-                self?.handleLoadedItem(url as? URL, error: error)
+        // Check for URL type attachment
+        if let urlProvider = extensionItem.attachments?.first(where: { $0.hasItemConformingToTypeIdentifier(UTType.url.identifier) }) {
+            urlProvider.loadItem(forTypeIdentifier: UTType.url.identifier, options: nil) { [weak self] (url, error) in
+                if let url = url as? URL {
+                    self?.sharedUrl = url
+                    self?.contentType = self?.detectContentType(url: url) ?? .unknown
+                }
             }
-        } else if itemProvider.hasItemConformingToTypeIdentifier(UTType.image.identifier) {
-            itemProvider.loadItem(forTypeIdentifier: UTType.image.identifier, options: nil) { [weak self] (image, error) in
-                self?.handleLoadedItem(image as? UIImage, error: error)
-            }
-        } else if itemProvider.hasItemConformingToTypeIdentifier(UTType.text.identifier) {
-            itemProvider.loadItem(forTypeIdentifier: UTType.text.identifier, options: nil) { [weak self] (text, error) in
-                self?.handleLoadedItem(text as? String, error: error)
-            }
-        } else {
-            logger.log("Unsupported content type")
         }
+        
+        // Check for Text type attachment
+        if let textProvider = extensionItem.attachments?.first(where: { $0.hasItemConformingToTypeIdentifier(UTType.text.identifier) }) {
+            textProvider.loadItem(forTypeIdentifier: UTType.text.identifier, options: nil) { [weak self] (text, error) in
+                if let text = text as? String {
+                    self?.sharedText = text
+                    // Attempt to infer the URL from the text if not already captured
+                    if self?.sharedUrl == nil {
+                        self?.sharedUrl = self?.inferUrl(from: text)
+                    }
+                    self?.contentType = self?.detectContentType(text: text) ?? .unknown
+                }
+            }
+        }
+        
+        if self.sharedUrl == nil {
+            if let attributedContent = extensionItem.attributedContentText,
+               let inferredUrl = self.inferUrl(from: attributedContent.string) {
+                self.sharedUrl = inferredUrl
+            } else if let attributedTitle = extensionItem.attributedTitle,
+                      let inferredUrl = self.inferUrl(from: attributedTitle.string) {
+                self.sharedUrl = inferredUrl
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.presentShareView()
+        }
+    }
+    
+    private func inferUrl(from text: String) -> URL? {
+        let types: NSTextCheckingResult.CheckingType = .link
+        let detector = try? NSDataDetector(types: types.rawValue)
+        let matches = detector?.matches(in: text, options: [], range: NSRange(location: 0, length: text.utf16.count))
+        
+        if let match = matches?.first, let range = Range(match.range, in: text) {
+            let urlString = String(text[range])
+            return URL(string: urlString)
+        }
+        return nil
     }
     
     private func handleLoadedItem(_ item: Any?, error: Error?) {
@@ -88,37 +119,43 @@ class ShareViewController: UIViewController {
             if let url = item as? URL {
                 self.logger.log("Loaded URL: \(url.absoluteString)")
                 self.sharedUrl = url
+                self.sharedText = ""
                 self.contentType = self.detectContentType(url: url)
                 self.logger.log("Detected content type for URL: \(self.contentType.rawValue)")
-            } else if let image = item as? UIImage {
-                self.logger.log("Loaded image")
-                self.sharedImage = image
-                self.contentType = .image
             } else if let text = item as? String {
                 self.logger.log("Loaded text: \(text)")
                 self.sharedText = text
-                self.contentType = self.detectContentType(text: text)
+                if self.sharedUrl == nil {
+                    self.sharedUrl = URL(string: "")
+                    self.contentType = self.detectContentType(text: text)
+                }
             }
-            
-            self.presentShareView()
         }
     }
     
     private func presentShareView() {
         let shareView = ShareView(
             url: sharedUrl,
-            image: sharedImage,
             text: sharedText,
             contentType: contentType,
-            saveAction: saveToMainApp
+            saveAction: saveToMainApp,
+            cancelAction: cancelExtension
         )
         
-        let hostingController = UIHostingController(rootView: shareView.presentationDetents([.medium]))
-        addChild(hostingController)
-        view.addSubview(hostingController.view)
-        hostingController.view.frame = view.bounds
-        hostingController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        hostingController.didMove(toParent: self)
+        let hostingController = UIHostingController(rootView: shareView)
+        hostingController.modalPresentationStyle = .pageSheet
+        
+        if let sheet = hostingController.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = true
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+            
+            sheet.delegate = self
+        }
+        
+        present(hostingController, animated: true, completion: nil)
     }
     
     private func detectContentType(url: URL) -> ContentType {
@@ -132,11 +169,6 @@ class ShareViewController: UIViewController {
             return .tweet
         }
         
-        let imageExtensions = ["jpg", "jpeg", "png", "gif"]
-        if imageExtensions.contains(url.pathExtension.lowercased()) {
-            return .image
-        }
-        
         return .article
     }
     
@@ -145,9 +177,10 @@ class ShareViewController: UIViewController {
         return .passage
     }
     
-    private func saveToMainApp(url: URL?, image: UIImage?, text: String?, title: String, tags: [String], contentType: ContentType) {
+    private func saveToMainApp(url: URL?, text: String?, title: String, tags: [String], contentType: ContentType) {
         let sharedDefaults = UserDefaults(suiteName: "group.RU773P5475.dev.egecam.Doku")
         let sharedKey = "SharedContent"
+        let entryCountKey = "EntryCount"
         
         var sharedContent: [String: Any] = [
             "title": title,
@@ -159,18 +192,25 @@ class ShareViewController: UIViewController {
             sharedContent["url"] = url.absoluteString
         }
         
-        if let image = image {
-            if let imageData = image.jpegData(compressionQuality: 0.8) {
-                sharedContent["imageData"] = imageData
-            }
-        }
-        
         if let text = text {
             sharedContent["content"] = text
         }
         
         sharedDefaults?.set(sharedContent, forKey: sharedKey)
         
+        let currentCount = sharedDefaults?.integer(forKey: entryCountKey) ?? 0
+        sharedDefaults?.set(currentCount + 1, forKey: entryCountKey)
+        
         self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
+    }
+    
+    private func cancelExtension() {
+        self.extensionContext?.cancelRequest(withError: NSError(domain: "dev.egecam.Doku", code: 0, userInfo: nil))
+    }
+}
+
+extension ShareViewController: UISheetPresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        cancelExtension()
     }
 }
