@@ -14,15 +14,19 @@ import os.log
 @MainActor
 class HomeViewModel: ObservableObject {
     @Published var entries: [DokuEntry] = []
+    @Published var tags: [String] = []
+    @Published var selectedTags: String?
+    
     private var db = Firestore.firestore()
     private let logger = Logger(subsystem: "dev.egecam.Doku", category: "HomeViewModel")
     
     init() {
         logger.log("HomeViewModel initialized")
         fetchEntries()
+        fetchTags()
     }
     
-    func saveEntry(url: URL?, imageData: Data?, content: String?, title: String, tags: [String], contentType: ContentType) async {
+    func saveEntry(url: URL?, content: String?, title: String, tags: [String], contentType: ContentType) async {
         logger.log("Attempting to save entry: \(title)")
         
         if let currentUser = Auth.auth().currentUser {
@@ -37,10 +41,6 @@ class HomeViewModel: ObservableObject {
             
             if let url = url {
                 entryData["url"] = url.absoluteString
-            }
-            
-            if let imageData = imageData {
-                entryData["content"] = imageData
             }
             
             if let content = content {
@@ -101,6 +101,70 @@ class HomeViewModel: ObservableObject {
         } else {
             self.logger.log("Failed to fetch entries, cannot find a currentUser.")
         }
+    }
+    
+    func fetchTags() {
+        if let currentUser = Auth.auth().currentUser {
+            var allTags: [String] = []
+            self.tags.removeAll()
+            
+            db.collection("entries").whereField("userID", isEqualTo: currentUser.uid).addSnapshotListener { [weak self] (querySnapshot, error) in
+                guard let self = self else { return }
+                
+                if let error = error {
+                    self.logger.log("Error getting documents: \(error.localizedDescription)")
+                    return
+                }
+                
+                for document in querySnapshot?.documents ?? [] {
+                    if let tags = document.get("tags") as? [String] {
+                        allTags.append(contentsOf: tags)
+                    }
+                }
+                
+                allTags.sort()
+                allTags.insert("favourite", at: 0)
+                self.tags = allTags.uniqued()
+            }
+        }
+    }
+    
+    func updateEntryFavouriteStatus(entryID: String, entryHasFavouriteTag: Bool) async {
+        self.logger.log("Input entryID: \(entryID)")
+        let docRef = db.collection("entries").document(entryID)
+        self.logger.log("Fetched entry with the document ID: \(docRef.documentID)")
+        
+        if !entryHasFavouriteTag {
+            // Entry is not favourited, 'favourite' tag will be added
+            do {
+                try await docRef.updateData([
+                    "tags": FieldValue.arrayUnion(["favourite"])
+                ])
+                self.logger.log("Entry is added to favourites")
+            } catch {
+                self.logger.log("\(error.localizedDescription)")
+            }
+            
+        } else {
+            // Entry is favourited, 'favourite' tag will be removed
+            do {
+                try await docRef.updateData([
+                    "tags": FieldValue.arrayRemove(["favourite"])
+                ])
+                self.logger.log("Entry is removed from favourites")
+            } catch {
+                self.logger.log("\(error.localizedDescription)")
+            }
+        }
+        
+    }
+    
+    func deleteEntry(entryID: String) async {
+        do {
+            try await db.collection("entries").document(entryID).delete()
+        } catch {
+            self.logger.log("Error getting document: \(error.localizedDescription)")
+        }
         
     }
     
@@ -114,5 +178,12 @@ class HomeViewModel: ObservableObject {
                 self.logger.log("Firestore connection test succeeded")
             }
         }
+    }
+}
+
+extension Sequence where Element: Hashable {
+    func uniqued() -> [Element] {
+        var set = Set<Element>()
+        return filter { set.insert($0).inserted}
     }
 }
