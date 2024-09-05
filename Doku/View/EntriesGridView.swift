@@ -16,7 +16,7 @@ struct EntriesGridView: View {
     
     @State private var isCardExpanded: Bool = false
     @State private var selectedEntry: DokuEntry?
-    @State private var selectedEntryLocation: UnitPoint?
+    @State private var searchText = ""
     
     let entries: [DokuEntry]
     let tags: [String]
@@ -24,9 +24,23 @@ struct EntriesGridView: View {
     private let impactMed = UIImpactFeedbackGenerator(style: .medium)
     
     var filteredEntries: [DokuEntry] {
-        selectedTag.map { tag in
+        // If both searchText and selectedTag are empty, return all entries
+        if searchText.isEmpty && selectedTag == nil {
+            return entries
+        }
+        
+        // Filter entries by tag if a tag is selected
+        let tagFilteredEntries = selectedTag.map { tag in
             entries.filter { $0.tags.contains(tag) }
         } ?? entries
+        
+        // If searchText is empty, return only the tag-filtered entries
+        if searchText.isEmpty {
+            return tagFilteredEntries
+        }
+        
+        // Filter the already tag-filtered entries by searchText
+        return tagFilteredEntries.filter { $0.title.contains(searchText) }
     }
     
     var body: some View {
@@ -39,8 +53,8 @@ struct EntriesGridView: View {
                 Color.black.opacity(0.5)
                     .ignoresSafeArea()
                     .onTapGesture {
-                            isCardExpanded = false
-                            selectedEntry = nil
+                        isCardExpanded = false
+                        selectedEntry = nil
                         
                     }
                 
@@ -61,6 +75,7 @@ struct EntriesGridView: View {
                 headerView
                 tagScrollView
                 entriesGridView
+                    .searchable(text: $searchText)
             }
             .padding()
         }
@@ -98,8 +113,6 @@ struct EntriesGridView: View {
                 EntryCardView(entry: entry)
                     .transition(.opacity.combined(with: .scale))
                     .onTapGesture { location in
-                        selectedEntryLocation?.x = location.x
-                        selectedEntryLocation?.y = location.y
                         selectedEntry = entry
                         withAnimation(.spring()) {
                             isCardExpanded = true
