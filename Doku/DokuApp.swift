@@ -81,7 +81,6 @@ struct DokuApp: App {
             RootView()
                 .modifier(InAppNotificationViewModifier())
         }
-        .environment(\.colorScheme, .light)
         .onChange(of: scenePhase) { oldPhase, newPhase in
             if newPhase == .active {
                 SharedContentHandler.shared.checkAndProcessSharedContent()
