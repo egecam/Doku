@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     @State var tabSelection: Int = 0
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         TabView {
