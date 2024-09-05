@@ -15,10 +15,9 @@ struct SettingsView: View {
     @State private var isUserLoggedOut: Bool = false
     @State private var isLoading: Bool = false
     @State private var isAutomaticDownloadsEnabled = false
-    @State private var selectedIcon: AppIcon = .default
+    @State private var currentAppIcon: String = "AppIcon"
     
     let columns = Array(repeating: GridItem(.flexible(), spacing: 18), count: 1)
-    
     
     private let logger = Logger(subsystem: "dev.egecam.Doku", category: "SettingsView")
     
@@ -28,6 +27,8 @@ struct SettingsView: View {
                 .ignoresSafeArea()
             
             VStack {
+                Spacer()
+                
                 HStack(alignment: .bottom) {
                     Text("Settings")
                         .font(.vollkorn(size: 32, weight: 600))
@@ -38,9 +39,21 @@ struct SettingsView: View {
                 }
                 
                 VStack(spacing: 40) {
+                    
+                    VStack {
+                        Text("Change App Icon")
+                            .font(.raleway(size: 18, weight: 500))
+                        
+                        HStack(spacing: 20) {
+                            AppIconButton(iconName: "AppIcon", displayName: "Default", currentIcon: $currentAppIcon)
+                            AppIconButton(iconName: "coralDoku", displayName: "Coral Doku", currentIcon: $currentAppIcon)
+                            AppIconButton(iconName: "archiverDoku", displayName: "Archiver", currentIcon: $currentAppIcon)
+                        }
+                    }
+                    
                     VStack(spacing: 20) {
                         Toggle("Automatic Downloads", systemImage: "arrow.down.circle.dotted", isOn: $isAutomaticDownloadsEnabled)
-                            .padding()
+                            .frame(width: 300)
                             .tint(.coral)
                         
                         Button {
@@ -74,32 +87,6 @@ struct SettingsView: View {
                         .modifier(SettingsOption())
                     }
                     
-                    VStack(spacing: 20) {
-                        Text("Customise App Icon")
-                        ForEach(AppIcon.allCases, id: \.self) { icon in
-                            Toggle(isOn: Binding(
-                                get: { selectedIcon == icon },
-                                set: { newValue in
-                                    if newValue {
-                                        selectedIcon = icon
-                                        updateIcon()
-                                    }
-                                }
-                            ), label: {
-                                HStack {
-                                    icon.icon
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 50, height: 50)
-                                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    Text(icon.description)
-                                        .font(.title3)
-                                }
-                            })
-                            .tint(.coral)
-                        }
-                    }
-                    
                     Button {
                         do {
                             isLoading = true
@@ -115,15 +102,13 @@ struct SettingsView: View {
                     .fullScreenCover(isPresented: $isUserLoggedOut, content: {
                         RootView()
                     })
-                    .padding(.top, 50)
                     .foregroundStyle(.coral)
                     
                     Spacer()
                     
                 }
-                .padding(.top, 100)
+                .padding(.top, 75)
                 .font(.raleway(size: 18, weight: 500))
-                .padding()
                 .overlay {
                     if isLoading {
                         LoadingScreen()
@@ -131,10 +116,10 @@ struct SettingsView: View {
                 }
             }
         }
-        .onAppear {
-            getCurrentIcon()
-        }
         .foregroundStyle(colorScheme == .light ? .jet : .alabaster)
+        .onAppear {
+            currentAppIcon = UIApplication.shared.alternateIconName ?? "AppIcon"
+        }
     }
 }
 
@@ -142,39 +127,46 @@ struct SettingsOption: ViewModifier {
     func body(content: Content) -> some View {
         @Environment(\.colorScheme) var colorScheme
         content
-            .background(RoundedRectangle(cornerRadius: 12.0).frame(width: 300, height: 40).foregroundStyle(colorScheme == .light ? .gray.opacity(0.2) : .davysGray))
+            .background(RoundedRectangle(cornerRadius: 12.0)
+                .frame(width: 300, height: 40)
+                .foregroundStyle(colorScheme == .light ? .gray.opacity(0.2) : .davysGray))
     }
 }
 
-private extension SettingsView {
-    func getCurrentIcon() {
-        if let iconName = UIApplication.shared.alternateIconName {
-            selectedIcon = AppIcon(from: iconName)
-        } else {
-            selectedIcon = .default
+struct AppIconButton: View {
+    let iconName: String
+    let displayName: String
+    @Binding var currentIcon: String
+    
+    var body: some View {
+        Button(action: {
+            changeAppIcon(to: iconName)
+        }) {
+            VStack {
+                Image(uiImage: UIImage(imageLiteralResourceName: iconName == "AppIcon" ? "AppIcon" : "\(iconName)"))
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                    .cornerRadius(12)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(currentIcon == iconName ? Color.davysGray.opacity(0.8) : Color.clear, lineWidth: 3)
+                    )
+                Text(displayName)
+                    .font(.caption)
+            }
         }
     }
     
-    func updateIcon() {
-        Task {
-            await CommonUtils.updateAppIcon(with: selectedIcon.name)
-        }
-    }
-}
-
-class CommonUtils {
-    static func updateAppIcon(with iconName: String?) async {
-        Task {
-            do {
-                guard await UIApplication.shared.alternateIconName != iconName else {
-                    return
-                }
+    private func changeAppIcon(to iconName: String) {
+        guard UIApplication.shared.alternateIconName != iconName else { return }
+        
+        UIApplication.shared.setAlternateIconName(iconName == "AppIcon" ? nil : iconName) { error in
+            if let error = error {
+                print("Error changing app icon: \(error.localizedDescription)")
+            } else {
                 DispatchQueue.main.async {
-                    UIApplication.shared.setAlternateIconName(iconName)
+                    self.currentIcon = iconName
                 }
-            }
-            catch {
-                print("Could not update icon \(error.localizedDescription)")
             }
         }
     }
