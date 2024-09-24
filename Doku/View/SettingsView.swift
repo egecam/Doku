@@ -46,8 +46,8 @@ struct SettingsView: View {
                         
                         HStack(spacing: 20) {
                             AppIconButton(iconName: "AppIcon", displayName: "Default", currentIcon: $currentAppIcon)
-                            AppIconButton(iconName: "coralDoku", displayName: "Coral Doku", currentIcon: $currentAppIcon)
-                            AppIconButton(iconName: "archiverDoku", displayName: "Archiver", currentIcon: $currentAppIcon)
+                            AppIconButton(iconName: "darkDoku", displayName: "Dark Doku", currentIcon: $currentAppIcon)
+                            AppIconButton(iconName: "watermelon", displayName: "Watermelon", currentIcon: $currentAppIcon)
                         }
                     }
                     
