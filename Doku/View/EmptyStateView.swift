@@ -9,19 +9,19 @@ import SwiftUI
 
 struct EmptyStateView: View {
     @Environment(\.colorScheme) var colorScheme
+    @AppStorage("isOnboarding") var isOnboarding: Bool = false
     
     var body: some View {
         ZStack {
             colorScheme == .light ? Color.alabaster.ignoresSafeArea() : Color.jet
                 .ignoresSafeArea()
             
-            VStack(alignment: .center, spacing: 10) {
+            VStack(alignment: .center, spacing: 20) {
                 ZStack {
-                    ForEach(0..<3){ card in
+                    ForEach((0...2).reversed(), id: \.self){ card in
                         VStack {
                             Spacer()
                             
-                            // TODO: Find a way to get the actual tweet!!
                             Text("Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They're not fond of rules.")
                                 .font(.literata(size: 18, weight: 500))
                                 .foregroundStyle(.mintCream)
@@ -52,9 +52,10 @@ struct EmptyStateView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 18.0))
                         .overlay(
                             RoundedRectangle(cornerRadius: 12)
-                                .stroke(Color.mintCream, lineWidth: 3)
+                                .stroke(Color.isabeline, lineWidth: 5)
                         )
-                        .rotationEffect(.degrees(Double(card * 10)))
+                        .rotationEffect(.degrees(Double(card * 6)))
+                        .offset(x: Double(card * -12), y: Double(card * -8))
                     }
                 }
                 .padding(.bottom)
@@ -81,10 +82,64 @@ struct EmptyStateView: View {
                 }
                 .padding()
                 .frame(alignment: .center)
+                
+                VStack(spacing: 0) {
+                    Text("... or restart the guide.")
+                        .font(.raleway(size: 16, weight: 400))
+                    
+                    Button {
+                        withAnimation(.spring()) {
+                            isOnboarding = true
+                        }
+                    } label: {
+                        HStack(alignment: .center, spacing: 0) {
+                            Text("Restart Guide")
+                                .font(.raleway(size: 20, weight: 700))
+                                .foregroundStyle(.isabeline)
+                            
+                            Image(systemName: "arror.right.circle")
+                                .imageScale(.large)
+                                .foregroundStyle(.isabeline)
+                        }
+                        .frame(width: 220, height: 50)
+                        .background(.coral)
+                        .cornerRadius(12.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12.0)
+                                .stroke(.coral, lineWidth: 0)
+                        )
+                        .padding()
+                    }
+                }
             }
         }
         .foregroundStyle(colorScheme == .light ? .jet : .alabaster)
         .ignoresSafeArea()
+        .overlay {
+            if isOnboarding {
+                OnboardingView()
+                    .overlay {
+                        VStack {
+                            HStack() {
+                                Spacer()
+                                Button {
+                                    withAnimation(.easeInOut(duration: 0.3)){
+                                        isOnboarding = false
+                                    }
+                                } label: {
+                                    Text("Cancel")
+                                        .foregroundStyle(.alabaster)
+                                        .imageScale(.large)
+                                        .safeAreaPadding()
+                                }
+                            }
+                            Spacer()
+                        }
+                    }
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                    .animation(.easeInOut(duration: 0.3))
+            }
+        }
     }
 }
 
