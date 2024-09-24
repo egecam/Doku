@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "... or restart the guide." : {
+
+    },
     "%@" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -17,6 +20,9 @@
           }
         }
       }
+    },
+    "03.11.2024" : {
+
     },
     "Add to favourites" : {
       "localizations" : {
@@ -50,10 +56,13 @@
         }
       }
     },
-    "Copy to clipboard" : {
+    "Cancel" : {
 
     },
-    "Customise App Icon" : {
+    "Change App Icon" : {
+
+    },
+    "Copy to clipboard" : {
 
     },
     "Delete" : {
@@ -136,6 +145,9 @@
         }
       }
     },
+    "Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They're not fond of rules." : {
+
+    },
     "Invalid URL" : {
 
     },
@@ -205,6 +217,9 @@
           }
         }
       }
+    },
+    "Restart Guide" : {
+
     },
     "Save" : {
       "localizations" : {
@@ -286,7 +301,11 @@
         }
       }
     },
+    "Share a link, passage or tweet with Doku on any app." : {
+
+    },
     "Share a link, text or tweet with Doku." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -349,6 +368,9 @@
           }
         }
       }
+    },
+    "Think Different" : {
+
     },
     "This is not an actual tweet. This is just a placeholder." : {
       "localizations" : {
