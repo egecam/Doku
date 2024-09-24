@@ -35,6 +35,7 @@
 		D486E3702C4C001500906554 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D486E36F2C4C001500906554 /* FirebaseFirestoreSwift */; };
 		D486E3722C4C001500906554 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D486E3712C4C001500906554 /* FirebaseStorage */; };
 		D48E69762C4DBBF0008DA145 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D48E69752C4DBBF0008DA145 /* Localizable.xcstrings */; };
+		D48F3ED12CA33E5800CD25B0 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = D48F3ED02CA33E5800CD25B0 /* SwiftSoup */; };
 		D497C2032C4008DB000F9F55 /* DokuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497C2022C4008DB000F9F55 /* DokuApp.swift */; };
 		D497C2052C4008DB000F9F55 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497C2042C4008DB000F9F55 /* HomeView.swift */; };
 		D497C2072C4008DB000F9F55 /* DokuEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497C2062C4008DB000F9F55 /* DokuEntry.swift */; };
@@ -193,6 +194,7 @@
 				D4E547452C656E170094A030 /* VFont in Frameworks */,
 				D486E3642C4C001500906554 /* FirebaseAnalytics in Frameworks */,
 				D486E36E2C4C001500906554 /* FirebaseFirestore in Frameworks */,
+				D48F3ED12CA33E5800CD25B0 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +442,7 @@
 				D486E36F2C4C001500906554 /* FirebaseFirestoreSwift */,
 				D486E3712C4C001500906554 /* FirebaseStorage */,
 				D4E547442C656E170094A030 /* VFont */,
+				D48F3ED02CA33E5800CD25B0 /* SwiftSoup */,
 			);
 			productName = Save;
 			productReference = D4D290132C41E538002E0FBD /* Save.appex */;
@@ -453,7 +456,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					D497C1FE2C4008DB000F9F55 = {
 						CreatedOnToolsVersion = 15.4;
@@ -485,6 +488,7 @@
 			packageReferences = (
 				D486E3582C4BFA6600906554 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D4E547412C656E0D0094A030 /* XCRemoteSwiftPackageReference "vfont" */,
+				D48F3ECF2CA33E5800CD25B0 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = D497C2002C4008DB000F9F55 /* Products */;
 			projectDirPath = "";
@@ -752,7 +756,6 @@
 		D497C2262C4008DC000F9F55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Doku/Doku.entitlements;
@@ -785,7 +788,6 @@
 		D497C2272C4008DC000F9F55 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Doku/Doku.entitlements;
@@ -818,7 +820,6 @@
 		D497C2292C4008DC000F9F55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -838,7 +839,6 @@
 		D497C22A2C4008DC000F9F55 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -858,7 +858,6 @@
 		D497C22C2C4008DC000F9F55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RU773P5475;
@@ -876,7 +875,6 @@
 		D497C22D2C4008DC000F9F55 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RU773P5475;
@@ -1004,6 +1002,14 @@
 				minimumVersion = 10.29.0;
 			};
 		};
+		D48F3ECF2CA33E5800CD25B0 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.5;
+			};
+		};
 		D4E547412C656E0D0094A030 /* XCRemoteSwiftPackageReference "vfont" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dufflink/vfont.git";
@@ -1079,6 +1085,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D486E3582C4BFA6600906554 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		D48F3ED02CA33E5800CD25B0 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D48F3ECF2CA33E5800CD25B0 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
 		};
 		D4E547422C656E0D0094A030 /* VFont */ = {
 			isa = XCSwiftPackageProductDependency;
