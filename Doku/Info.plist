@@ -9,5 +9,9 @@
 		<string>Literata.ttf</string>
 		<string>Inter.ttf</string>
 	</array>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>dev.egecam.Doku.synctask</string>
+	</array>
 </dict>
 </plist>
