@@ -18,7 +18,7 @@ struct EntryDetailView: View {
                     HStack(alignment: .center) {
                         if let url = entry.url {
                             ZStack {
-                                AsyncImage(url: URL(string: FavIcon(url)[.l]))
+                                AsyncImage(url: URL(string: FavIcon(url)[.m]))
                                     .clipShape(RoundedRectangle(cornerRadius: 18.0))
                             }
                         }
