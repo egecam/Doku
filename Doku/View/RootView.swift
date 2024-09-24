@@ -15,57 +15,63 @@ struct RootView: View {
     @State private var showAlert: Bool = false
     @State private var isLoading: Bool = false
     @State private var nonce: String?
-    @AppStorage("log_status") var logStatus: Bool = false
     
+    @AppStorage("log_status") var logStatus: Bool = false
+    @AppStorage("isOnboarding") var isOnboarding: Bool = true
     @Environment(\.colorScheme) var colorScheme
-
+    
+    
     var body: some View {
         ZStack {
             colorScheme == .light ? Color.alabaster.ignoresSafeArea() : Color.jet
                 .ignoresSafeArea()
             
-            Group {
-                if AuthManager.shared.getAuthState() {
-                    HomeView()
-                } else {
-                    VStack {
-                        Text("Doku")
-                            .font(.vollkorn(size: 42, weight: 800))
-                        
-                        Text("Your digital commonplace book")
-                            .font(.raleway(size: 20, weight: 500))
-                        
-                        SignInWithAppleButton { request in
-                            let nonce = randomNonceString()
-                            self.nonce = nonce
-                            request.requestedScopes = [.email, .fullName]
-                            request.nonce = sha256(nonce)
-                        } onCompletion: { result in
-                            switch result {
-                            case .success(let authorization):
-                                loginWithFirebase(authorization)
-                                
-                            case .failure(let error):
-                                showError(error.localizedDescription)
+            if isOnboarding {
+              OnboardingView()
+            } else {
+                Group {
+                    if AuthManager.shared.getAuthState() {
+                        HomeView()
+                    } else {
+                        VStack {
+                            Text("Doku")
+                                .font(.vollkorn(size: 42, weight: 800))
+                            
+                            Text("Your digital commonplace book")
+                                .font(.raleway(size: 20, weight: 500))
+                            
+                            SignInWithAppleButton { request in
+                                let nonce = randomNonceString()
+                                self.nonce = nonce
+                                request.requestedScopes = [.email, .fullName]
+                                request.nonce = sha256(nonce)
+                            } onCompletion: { result in
+                                switch result {
+                                case .success(let authorization):
+                                    loginWithFirebase(authorization)
+                                    
+                                case .failure(let error):
+                                    showError(error.localizedDescription)
+                                }
                             }
+                            .frame(width: 250, height: 45)
+                            .clipShape(Capsule())
+                            .padding(.top, 50)
                         }
-                        .frame(width: 250, height: 45)
-                        .clipShape(Capsule())
-                        .padding(.top, 50)
+                        .foregroundStyle(colorScheme == .light ? Color.jet : Color.alabaster)
                     }
-                    .foregroundStyle(colorScheme == .light ? Color.jet : Color.alabaster)
+                }
+                .overlay {
+                    if isLoading {
+                        LoadingScreen()
+                    }
+                }
+                .onAppear {
+                    if !AuthManager.shared.getAuthState() {
+                        AuthManager.shared.setAuthState(false)
+                    }
                 }
             }
-            .overlay {
-                if isLoading {
-                    LoadingScreen()
-                }
-            }
-            .onAppear {
-                if !AuthManager.shared.getAuthState() {
-                    AuthManager.shared.setAuthState(false)
-                }
-        }
         }
     }
     
