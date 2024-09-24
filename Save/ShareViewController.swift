@@ -17,7 +17,7 @@ class ShareViewController: UIViewController {
     private var sharedUrl: URL?
     private var sharedText: String?
     private var contentType: ContentType = .unknown
-    private let logger = Logger()
+    private let logger = Logger(subsystem: "dev.egecam.Doku.Save", category: "ShareViewController")
     private var userDefaults = UserDefaults(suiteName: "group.RU773P5475.dev.egecam.Doku")
     
     override func loadView() {
@@ -52,48 +52,23 @@ class ShareViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    
     private func loadSharedItem() {
-        guard let extensionItem = extensionContext?.inputItems.first as? NSExtensionItem else {
+        guard let extensionItem = extensionContext?.inputItems.first as? NSExtensionItem,
+              let itemProvider = extensionItem.attachments?.first else {
             logger.log("No input items found")
             return
         }
-        
-        // Check for URL type attachment
-        if let urlProvider = extensionItem.attachments?.first(where: { $0.hasItemConformingToTypeIdentifier(UTType.url.identifier) }) {
-            urlProvider.loadItem(forTypeIdentifier: UTType.url.identifier, options: nil) { [weak self] (url, error) in
-                if let url = url as? URL {
-                    self?.sharedUrl = url
-                    self?.contentType = self?.detectContentType(url: url) ?? .unknown
-                }
+        if itemProvider.hasItemConformingToTypeIdentifier(UTType.url.identifier) {
+            itemProvider.loadItem(forTypeIdentifier: UTType.url.identifier, options: nil) { [weak self] (url, error) in
+                self?.handleLoadedItem(url as? URL, error: error)
             }
-        }
-        
-        // Check for Text type attachment
-        if let textProvider = extensionItem.attachments?.first(where: { $0.hasItemConformingToTypeIdentifier(UTType.text.identifier) }) {
-            textProvider.loadItem(forTypeIdentifier: UTType.text.identifier, options: nil) { [weak self] (text, error) in
-                if let text = text as? String {
-                    self?.sharedText = text
-                    // Attempt to infer the URL from the text if not already captured
-                    if self?.sharedUrl == nil {
-                        self?.sharedUrl = self?.inferUrl(from: text)
-                    }
-                    self?.contentType = self?.detectContentType(text: text) ?? .unknown
-                }
+        } else if itemProvider.hasItemConformingToTypeIdentifier(UTType.text.identifier) {
+            itemProvider.loadItem(forTypeIdentifier: UTType.text.identifier, options: nil) { [weak self] (text, error) in
+                self?.handleLoadedItem(text as? String, error: error)
             }
-        }
-        
-        if self.sharedUrl == nil {
-            if let attributedContent = extensionItem.attributedContentText,
-               let inferredUrl = self.inferUrl(from: attributedContent.string) {
-                self.sharedUrl = inferredUrl
-            } else if let attributedTitle = extensionItem.attributedTitle,
-                      let inferredUrl = self.inferUrl(from: attributedTitle.string) {
-                self.sharedUrl = inferredUrl
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.presentShareView()
+        } else {
+            logger.log("Unsupported content type")
         }
     }
     
@@ -115,24 +90,32 @@ class ShareViewController: UIViewController {
             return
         }
         
-        DispatchQueue.main.async {
-            if let url = item as? URL {
-                self.logger.log("Loaded URL: \(url.absoluteString)")
-                self.sharedUrl = url
-                self.sharedText = ""
-                self.contentType = self.detectContentType(url: url)
-                self.logger.log("Detected content type for URL: \(self.contentType.rawValue)")
-            } else if let text = item as? String {
-                self.logger.log("Loaded text: \(text)")
-                self.sharedText = text
-                if self.sharedUrl == nil {
-                    self.sharedUrl = URL(string: "")
-                    self.contentType = self.detectContentType(text: text)
+        Task {
+            do {
+                if let url = item as? URL {
+                    self.logger.debug("Loaded URL: \(url.absoluteString)")
+                    self.sharedUrl = url
+                    self.contentType = detectContentType(url: url)
+                    self.logger.debug("Detected content type for URL: \(self.contentType.rawValue)")
+                    if self.contentType == .tweet {
+                        // Tweet scraping logic
+                    } else if self.contentType == .article {
+                        self.sharedText = ""
+                    }
+                } else if let text = item as? String {
+                    self.logger.debug("Loaded text: \(text)")
+                    self.sharedText = text
+                    if self.sharedUrl == nil {
+                        self.sharedUrl = URL(string: "")
+                        self.contentType = self.detectContentType(text: text)
+                    }
                 }
             }
+            
+            self.presentShareView()
         }
     }
-    
+
     private func presentShareView() {
         let shareView = ShareView(
             url: sharedUrl,
@@ -165,11 +148,13 @@ class ShareViewController: UIViewController {
             return .article
         }
         
-        if urlString.contains("twitter.com") || urlString.contains("x.com") {
+        else if urlString.contains("x.com") {
             return .tweet
         }
         
-        return .article
+        else {
+            return .article
+        }
     }
     
     private func detectContentType(text: String) -> ContentType {

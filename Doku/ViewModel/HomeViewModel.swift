@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
@@ -18,6 +19,7 @@ class HomeViewModel: ObservableObject {
     @Published var selectedTags: String?
     
     private var db = Firestore.firestore()
+    
     private let logger = Logger(subsystem: "dev.egecam.Doku", category: "HomeViewModel")
     
     init() {
@@ -33,6 +35,7 @@ class HomeViewModel: ObservableObject {
             var entryData: [String: Any] = [
                 "userID": currentUser.uid,
                 "title": title,
+                "content": content ?? "",
                 "contentType": contentType.rawValue,
                 "tags": tags,
                 "createdAt": Date(),
@@ -41,10 +44,6 @@ class HomeViewModel: ObservableObject {
             
             if let url = url {
                 entryData["url"] = url.absoluteString
-            }
-            
-            if let content = content {
-                entryData["content"] = content
             }
             
             do {

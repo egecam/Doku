@@ -65,8 +65,6 @@ class PassThroughWindow: UIWindow {
     }
 }
 
-
-
 @main
 struct DokuApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
@@ -80,6 +78,7 @@ struct DokuApp: App {
         WindowGroup {
             RootView()
                 .modifier(InAppNotificationViewModifier())
+            
         }
         .onChange(of: scenePhase) { oldPhase, newPhase in
             if newPhase == .active {
@@ -159,4 +158,3 @@ private func loadRocketSimConnect() {
     print("RocketSim Connect successfully linked")
 #endif
 }
-

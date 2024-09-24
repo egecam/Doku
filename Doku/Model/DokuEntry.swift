@@ -7,7 +7,9 @@
 
 import Foundation
 import FirebaseFirestoreSwift
+import SwiftData
 
+// MARK: Firebase Model
 struct DokuEntry: Codable, Identifiable {
     @DocumentID var id: String?
     let userID: String

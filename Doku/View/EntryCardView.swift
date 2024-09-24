@@ -226,4 +226,3 @@ struct FavIcon {
         "https://www.google.com/s2/favicons?sz=\(size.rawValue)&domain=\(domain)"
     }
 }
-
