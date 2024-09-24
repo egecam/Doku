@@ -10,8 +10,11 @@
 		D4110DD52C62B3E400665491 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D4110DD42C62B3E400665491 /* Shaders.metal */; };
 		D421F0092C77A63900D97637 /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D421F0082C77A63900D97637 /* Inter.ttf */; };
 		D421F00A2C77A63900D97637 /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D421F0082C77A63900D97637 /* Inter.ttf */; };
+		D4225D962C8C5E38005511CC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4225D952C8C5E38005511CC /* OnboardingView.swift */; };
+		D4225D992C8C7605005511CC /* OnboardingCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4225D982C8C7605005511CC /* OnboardingCardModel.swift */; };
+		D4225D9B2C8C769A005511CC /* OnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4225D9A2C8C769A005511CC /* OnboardingCardView.swift */; };
 		D433E22D2C517106004F804D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433E22C2C517106004F804D /* AuthManager.swift */; };
-		D447BE392C863FD3003F9165 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D447BE382C863FD3003F9165 /* AppIcon.swift */; };
+		D4533E402C931398002A20EF /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B17CE02C4D61C9006E52ED /* ShareView.swift */; };
 		D4771C0A2C81FA0400DFB6A1 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4771C092C81FA0400DFB6A1 /* NotificationManager.swift */; };
 		D4771C0C2C81FEEE00DFB6A1 /* InAppNotificationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4771C0B2C81FEEE00DFB6A1 /* InAppNotificationViewModifier.swift */; };
 		D486E3542C4BF9FF00906554 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D486E3532C4BF9FF00906554 /* GoogleService-Info.plist */; };
@@ -42,7 +45,6 @@
 		D497C2222C4008DC000F9F55 /* DokuUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497C2212C4008DC000F9F55 /* DokuUITestsLaunchTests.swift */; };
 		D497C2322C401020000F9F55 /* EntryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497C2312C401020000F9F55 /* EntryCardView.swift */; };
 		D4A0C5BB2C416A6800886FC8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0C5BA2C416A6800886FC8 /* SettingsView.swift */; };
-		D4B17CE12C4D61C9006E52ED /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B17CE02C4D61C9006E52ED /* ShareView.swift */; };
 		D4B17CE32C4D7857006E52ED /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B17CE22C4D7857006E52ED /* RootView.swift */; };
 		D4BFEBF12C7D2A2B0007A222 /* ShareViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFEBF02C7D2A2B0007A222 /* ShareViewPreview.swift */; };
 		D4BFEBF22C7D34FC0007A222 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D497C2082C4008DC000F9F55 /* Assets.xcassets */; };
@@ -54,7 +56,6 @@
 		D4D2901D2C41E538002E0FBD /* Save.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D4D290132C41E538002E0FBD /* Save.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D4D290222C41E6E9002E0FBD /* DokuEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497C2062C4008DB000F9F55 /* DokuEntry.swift */; };
 		D4E547322C6564AB0094A030 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E547312C6564AB0094A030 /* HomeViewModel.swift */; };
-		D4E547332C6564AB0094A030 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E547312C6564AB0094A030 /* HomeViewModel.swift */; };
 		D4E5473C2C656D020094A030 /* Raleway.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4E5473B2C656D020094A030 /* Raleway.ttf */; };
 		D4E5473D2C656D020094A030 /* Raleway.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4E5473B2C656D020094A030 /* Raleway.ttf */; };
 		D4E5473F2C656D130094A030 /* Literata.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4E5473E2C656D130094A030 /* Literata.ttf */; };
@@ -109,8 +110,10 @@
 /* Begin PBXFileReference section */
 		D4110DD42C62B3E400665491 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		D421F0082C77A63900D97637 /* Inter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inter.ttf; sourceTree = "<group>"; };
+		D4225D952C8C5E38005511CC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		D4225D982C8C7605005511CC /* OnboardingCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCardModel.swift; sourceTree = "<group>"; };
+		D4225D9A2C8C769A005511CC /* OnboardingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCardView.swift; sourceTree = "<group>"; };
 		D433E22C2C517106004F804D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		D447BE382C863FD3003F9165 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		D4771C092C81FA0400DFB6A1 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		D4771C0B2C81FEEE00DFB6A1 /* InAppNotificationViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppNotificationViewModifier.swift; sourceTree = "<group>"; };
 		D486E3532C4BF9FF00906554 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -205,6 +208,16 @@
 			path = Handlers;
 			sourceTree = "<group>";
 		};
+		D4225D972C8C75E5005511CC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				D4225D952C8C5E38005511CC /* OnboardingView.swift */,
+				D4225D982C8C7605005511CC /* OnboardingCardModel.swift */,
+				D4225D9A2C8C769A005511CC /* OnboardingCardView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		D497C1F62C4008DB000F9F55 = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +249,7 @@
 				D486E3532C4BF9FF00906554 /* GoogleService-Info.plist */,
 				D4D290242C41E723002E0FBD /* Doku.entitlements */,
 				D497C2022C4008DB000F9F55 /* DokuApp.swift */,
+				D4225D972C8C75E5005511CC /* Onboarding */,
 				D412E48B2C4F0F4400641712 /* Handlers */,
 				D497C22F2C400EB4000F9F55 /* Model */,
 				D497C22E2C400EB0000F9F55 /* View */,
@@ -333,7 +347,6 @@
 				D4F8B3E32C4EFB610096D04A /* LoadingScreen.swift */,
 				D4E547462C656E250094A030 /* Fonts+Doku.swift */,
 				D4771C0B2C81FEEE00DFB6A1 /* InAppNotificationViewModifier.swift */,
-				D447BE382C863FD3003F9165 /* AppIcon.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -539,7 +552,7 @@
 			files = (
 				D497C2052C4008DB000F9F55 /* HomeView.swift in Sources */,
 				D4BFEBF12C7D2A2B0007A222 /* ShareViewPreview.swift in Sources */,
-				D447BE392C863FD3003F9165 /* AppIcon.swift in Sources */,
+				D4225D992C8C7605005511CC /* OnboardingCardModel.swift in Sources */,
 				D4E547472C656E250094A030 /* Fonts+Doku.swift in Sources */,
 				D433E22D2C517106004F804D /* AuthManager.swift in Sources */,
 				D4110DD52C62B3E400665491 /* Shaders.metal in Sources */,
@@ -548,11 +561,13 @@
 				D497C2072C4008DB000F9F55 /* DokuEntry.swift in Sources */,
 				D4D2900C2C41E4A4002E0FBD /* EntriesGridView.swift in Sources */,
 				D4B17CE32C4D7857006E52ED /* RootView.swift in Sources */,
+				D4225D962C8C5E38005511CC /* OnboardingView.swift in Sources */,
 				D4A0C5BB2C416A6800886FC8 /* SettingsView.swift in Sources */,
 				D4E547322C6564AB0094A030 /* HomeViewModel.swift in Sources */,
 				D497C2322C401020000F9F55 /* EntryCardView.swift in Sources */,
 				D4771C0C2C81FEEE00DFB6A1 /* InAppNotificationViewModifier.swift in Sources */,
 				D4D2900E2C41E4B2002E0FBD /* EntryDetailView.swift in Sources */,
+				D4225D9B2C8C769A005511CC /* OnboardingCardView.swift in Sources */,
 				D497C2032C4008DB000F9F55 /* DokuApp.swift in Sources */,
 				D4D2900A2C41E493002E0FBD /* EmptyStateView.swift in Sources */,
 			);
@@ -579,11 +594,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4533E402C931398002A20EF /* ShareView.swift in Sources */,
 				D4F8B3E52C4EFC600096D04A /* LoadingScreen.swift in Sources */,
-				D4B17CE12C4D61C9006E52ED /* ShareView.swift in Sources */,
 				D4D290162C41E538002E0FBD /* ShareViewController.swift in Sources */,
 				D4BFEBF42C7D36660007A222 /* Fonts+Save.swift in Sources */,
-				D4E547332C6564AB0094A030 /* HomeViewModel.swift in Sources */,
 				D4D290222C41E6E9002E0FBD /* DokuEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -754,6 +768,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -786,6 +801,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
